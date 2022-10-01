@@ -20,18 +20,22 @@ const Post = ({ post }) => {
   return (
     <div className="container">
       <article>
-        <div
-          className={styles.illustration}
-          style={{
-            backgroundImage: `url(${process.env.NEXT_PUBLIC_API_BASEURL}${illustrationData.url})`,
-          }}
-        ></div>
+        {illustrationData && (
+          <div
+            className={styles.illustration}
+            style={{
+              backgroundImage: `url(${process.env.NEXT_PUBLIC_API_BASEURL}${illustrationData.url})`,
+            }}
+          ></div>
+        )}
 
-        <div className={styles.categories}>
-          {categories.data.map((category) => (
-            <Category key={category.id} name={category.attributes.Name} />
-          ))}
-        </div>
+        {categories && (
+          <div className={styles.categories}>
+            {categories.data.map((category) => (
+              <Category key={category.id} name={category.attributes.Name} />
+            ))}
+          </div>
+        )}
 
         <div className={styles.content}>
           <h1>{Title}</h1>

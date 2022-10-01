@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { format, parseISO } from 'date-fns';
 import { GetPost } from '../api/posts';
 import styles from '../../styles/pages/Post.module.scss';
+import { Category } from '../../components/Category';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -12,7 +13,8 @@ export async function getServerSideProps(context) {
 }
 
 const Post = ({ post }) => {
-  const { Title, Content, createdAt, Illustration } = post.data.attributes;
+  const { Title, Content, createdAt, Illustration, categories } =
+    post.data.attributes;
   const illustrationData = Illustration.data.attributes;
 
   return (
@@ -25,7 +27,11 @@ const Post = ({ post }) => {
           }}
         ></div>
 
-        <div className={styles.categories}></div>
+        <div className={styles.categories}>
+          {categories.data.map((category) => (
+            <Category key={category.id} name={category.attributes.Name} />
+          ))}
+        </div>
 
         <div className={styles.content}>
           <h1>{Title}</h1>

@@ -13,9 +13,9 @@ export async function getServerSideProps(context) {
 }
 
 const Post = ({ post }) => {
-  const { Title, Content, createdAt, Illustration, categories } =
+  const { title, content, createdAt, illustration, categories } =
     post.data.attributes;
-  const illustrationData = Illustration.data.attributes;
+  const illustrationData = illustration.data.attributes;
 
   return (
     <div className="container">
@@ -38,11 +38,11 @@ const Post = ({ post }) => {
         )}
 
         <div className={styles.content}>
-          <h1>{Title}</h1>
+          <h1>{title}</h1>
           <p className={styles.date}>
             {format(parseISO(createdAt), 'dd MMMM yyyy, HH:MM')}
           </p>
-          <p className={styles.overview}>{Content}</p>
+          <p className={styles.overview}>{content}</p>
         </div>
 
         <Link href={'/'}>

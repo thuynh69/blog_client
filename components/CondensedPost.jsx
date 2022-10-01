@@ -4,17 +4,17 @@ import { format, parseISO } from 'date-fns';
 import styles from '../styles/components/CondensedPost.module.scss';
 
 export const CondensedPost = ({ post, id }) => {
-  const { Title, Content, createdAt, Illustration } = post;
-  const illustrationData = Illustration?.data.attributes;
+  const { title, content, createdAt, illustration } = post;
+  const illustrationData = illustration?.data.attributes;
 
   return (
     <article className={styles.article}>
       <div className={styles.content}>
-        <h2>{Title}</h2>
+        <h2>{title}</h2>
         <p className={styles.date}>
           {format(parseISO(createdAt), 'dd MMMM yyyy, HH:MM')}
         </p>
-        <p className={styles.overview}>{Content}</p>
+        <p className={styles.overview}>{content}</p>
         <Link href={'/post/' + id}>
           <a>Read it all</a>
         </Link>

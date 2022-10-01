@@ -1,10 +1,22 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link';
+import { GetPost } from '../api/posts';
 
-const Post = () => {
-  const router = useRouter()
-  const { id } = router.query
-
-  return <p>Post: {id}</p>
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  const post = await GetPost(id);
+  return {
+    props: { post },
+  };
 }
 
-export default Post
+const Post = ({ post }) => {
+  console.log(post);
+
+  return (
+    <Link href={'/'}>
+      <a>Back Home</a>
+    </Link>
+  );
+};
+
+export default Post;

@@ -1,0 +1,39 @@
+.backButton {
+  background-color: $light;
+  color: $dark;
+  border: solid 2px $dark;
+
+  max-width: 10rem;
+}
+
+.illustration {
+  height: 30vh;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  padding: 2rem 0;
+
+  h1 {
+    margin-bottom: 1rem;
+    font-family: $merriweather;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}
+
+.date {
+  margin-bottom: 2rem;
+  font-family: $lato;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.overview {
+  line-height: 1.2;
+  font-family: $lato;
+}

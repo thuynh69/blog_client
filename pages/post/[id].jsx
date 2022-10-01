@@ -1,5 +1,7 @@
 import Link from 'next/link';
+import { format, parseISO } from 'date-fns';
 import { GetPost } from '../api/posts';
+import styles from '../../styles/pages/Post.module.scss';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -10,12 +12,34 @@ export async function getServerSideProps(context) {
 }
 
 const Post = ({ post }) => {
-  console.log(post);
+  const { Title, Content, createdAt, Illustration } = post.data.attributes;
+  const illustrationData = Illustration.data.attributes;
 
   return (
-    <Link href={'/'}>
-      <a>Back Home</a>
-    </Link>
+    <div className="container">
+      <article>
+        <div
+          className={styles.illustration}
+          style={{
+            backgroundImage: `url(${process.env.NEXT_PUBLIC_API_BASEURL}${illustrationData.url})`,
+          }}
+        ></div>
+
+        <div className={styles.categories}></div>
+
+        <div className={styles.content}>
+          <h1>{Title}</h1>
+          <p className={styles.date}>
+            {format(parseISO(createdAt), 'dd MMMM yyyy, HH:MM')}
+          </p>
+          <p className={styles.overview}>{Content}</p>
+        </div>
+
+        <Link href={'/'}>
+          <a className={styles.backButton}>Back Home</a>
+        </Link>
+      </article>
+    </div>
   );
 };
 

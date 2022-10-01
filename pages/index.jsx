@@ -4,7 +4,7 @@ import { GetPosts } from './api/posts';
 import { CondensedPost } from '../components/CondensedPost';
 
 export async function getServerSideProps() {
-  const posts = await GetPosts() 
+  const posts = await GetPosts();
   return {
     props: { posts },
   };
@@ -12,7 +12,7 @@ export async function getServerSideProps() {
 
 export default function Home({ posts }) {
   return (
-    <div className={styles.container}>
+    <div className="container">
       <Head>
         <title>Basic blog</title>
         <meta name="description" content="A basic blog" />
@@ -20,12 +20,10 @@ export default function Home({ posts }) {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          The blog
-        </h1>
+        <h1 className={styles.title}>The blog</h1>
 
         {posts.data.map((post) => (
-          <CondensedPost post={post.attributes} id={post.id} key={post.id}/> 
+          <CondensedPost post={post.attributes} id={post.id} key={post.id} />
         ))}
       </main>
 

@@ -11,7 +11,6 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ posts }) {
-  console.log(posts)
   return (
     <div className={styles.container}>
       <Head>
@@ -22,11 +21,11 @@ export default function Home({ posts }) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          THE BLOG
+          The blog
         </h1>
 
         {posts.data.map((post) => (
-          <CondensedPost post={post.attributes} key={post.id}/> 
+          <CondensedPost post={post.attributes} id={post.id} key={post.id}/> 
         ))}
       </main>
 

@@ -6,10 +6,21 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  color: $dark;
+  background: $light;
+}
+
 a {
-  color: inherit;
+  display: block;
+  line-height: 2rem;
+  background-color: $dark;
+  color: $light;
+  text-align: center;
   text-decoration: none;
-  
+  text-transform: uppercase;
+  font-family: $lato;
+  font-weight: 500;
 }
 
 * {
@@ -21,8 +32,8 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: $light;
+    background: $dark;
   }
 }
 

@@ -3,20 +3,30 @@
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
+  padding: 30vh 0 4rem 0;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include tablet {
+    padding: 20vh 0 4rem 0;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  .footer {
-    border-color: #222;
+.title {
+  margin-bottom: 20vh;
+  font-family: $merriweather;
+  font-size: 10rem;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include tablet {
+    font-size: 8rem;
   }
-  .code {
-    background: #111;
+
+  @include phone {
+    font-size: 5rem;
   }
 }

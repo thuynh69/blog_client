@@ -15,7 +15,7 @@ export async function getServerSideProps(context) {
 const Post = ({ post }) => {
   const { title, content, createdAt, illustration, categories } =
     post.data.attributes;
-  const illustrationData = illustration.data.attributes;
+  const illustrationData = illustration?.data?.attributes;
 
   return (
     <div className="container">
@@ -29,10 +29,10 @@ const Post = ({ post }) => {
           ></div>
         )}
 
-        {categories && (
+        {categories?.data && (
           <div className={styles.categories}>
             {categories.data.map((category) => (
-              <Category key={category.id} name={category.attributes.Name} />
+              <Category key={category.id} name={category.attributes.name} />
             ))}
           </div>
         )}

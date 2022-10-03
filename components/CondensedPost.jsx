@@ -5,7 +5,7 @@ import styles from '../styles/components/CondensedPost.module.scss';
 
 export const CondensedPost = ({ post, id }) => {
   const { title, content, createdAt, illustration } = post;
-  const illustrationData = illustration?.data.attributes;
+  const illustrationData = illustration?.data?.attributes;
 
   return (
     <article className={styles.article}>
